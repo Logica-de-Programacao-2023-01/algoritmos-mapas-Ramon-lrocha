@@ -1,0 +1,34 @@
+package main
+
+import (
+	"fmt"
+)
+
+func calculateExpenses(balance map[string]float64) map[string]float64 {
+	totalExpenses := 0.0
+	numPeople := len(balance)
+
+	for _, amount := range balance {
+		totalExpenses += amount
+	}
+
+	equalExpense := totalExpenses / float64(numPeople)
+
+	expensesMap := make(map[string]float64)
+
+	for person, amount := range balance {
+		expensesMap[person] = equalExpense - amount
+	}
+
+	return expensesMap
+}
+
+func main() {
+	balance := map[string]float64{
+		"Alice":  20.0,
+		"Bob":    30.0,
+		"Charlie": 15.0,
+	}
+	expensesMap := calculateExpenses(balance)
+	fmt.Println(expensesMap)
+}
