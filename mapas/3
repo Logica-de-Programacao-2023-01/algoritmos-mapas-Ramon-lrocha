@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+)
+
+func sumValues(m map[string]int) int {
+	sum := 0
+
+	for _, value := range m {
+		sum += value
+	}
+
+	return sum
+}
+
+func main() {
+	m := map[string]int{
+		"apple":  2,
+		"orange": 3,
+		"banana": 1,
+	}
+	totalSum := sumValues(m)
+	fmt.Println(totalSum)
+}

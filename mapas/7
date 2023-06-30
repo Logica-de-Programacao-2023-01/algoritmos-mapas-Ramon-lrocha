@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func countLettersInWords(sentence string) map[string]map[string]int {
+	wordMap := make(map[string]map[string]int)
+
+	words := strings.Fields(sentence)
+
+	for _, word := range words {
+		letterCount := make(map[string]int)
+
+		for _, char := range word {
+			letterCount[string(char)]++
+		}
+
+		wordMap[word] = letterCount
+	}
+
+	return wordMap
+}
+
+func main() {
+	sentence := "hello world"
+	wordMap := countLettersInWords(sentence)
+	fmt.Println(wordMap)
+}

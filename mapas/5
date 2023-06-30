@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+)
+
+func countCharacters(str string) map[string]int {
+	charCount := make(map[string]int)
+
+	for _, char := range str {
+		charCount[string(char)]++
+	}
+
+	return charCount
+}
+
+func main() {
+	str := "hello"
+	charCount := countCharacters(str)
+	fmt.Println(charCount)
+}

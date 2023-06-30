@@ -1,0 +1,22 @@
+package main
+
+import (
+	"fmt"
+)
+
+func countNumberPairs(numbers []int) map[string]int {
+	pairCount := make(map[string]int)
+
+	for i := 0; i < len(numbers)-1; i++ {
+		pair := fmt.Sprintf("%d-%d", numbers[i], numbers[i+1])
+		pairCount[pair]++
+	}
+
+	return pairCount
+}
+
+func main() {
+	numbers := []int{1, 2, 3, 4, 5, 2, 3, 4, 1}
+	pairCount := countNumberPairs(numbers)
+	fmt.Println(pairCount)
+}
